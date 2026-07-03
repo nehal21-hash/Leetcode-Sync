@@ -20,8 +20,6 @@
         for(int i=1;i<=n;++i){
         }
             dp[i][0] = i;
-                val = dp[i][j-1];
-                j--;
         for(int i=0;i<=n;++i){
         }
             dp[0][i] = i;
@@ -30,3 +28,5 @@
         vector<vector<int>>dp(n+1,vector<int>(m+1,1e7));
         int n = (int)str1.size(), m =(int)str2.size();
     string shortestCommonSupersequence(string str1, string str2) {
+public:
+class Solution {
