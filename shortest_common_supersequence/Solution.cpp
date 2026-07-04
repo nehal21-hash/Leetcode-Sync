@@ -1,14 +1,4 @@
 
-            dp[0][i] = i;
-        }
-        for(int i=0;i<=n;++i){
-            dp[i][0] = i;
-        }
-        for(int i=1;i<=n;++i){
-            for(int j=1;j<=m;++j){
-                dp[i][j] = min(dp[i][j-1]+1,dp[i-1][j]+1);
-                if(str1[i-1] == str2[j-1]){
-                    dp[i][j] = min(dp[i][j],dp[i-1][j-1]+1);
                 }
             }
         }
@@ -31,3 +21,11 @@
             if(i>0 && j>0 && str1[i-1] == str2[j-1]  && dp[i-1][j-1] +1 == val){
                 ans.push_back(str1[i-1]);
                 val = dp[i-1][j-1];
+                i--,j--;
+                continue;
+            }
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
