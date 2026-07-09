@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<int>parent;
+    vector<int>parent,ranks;
     int find_set(int u){
         if(parent[u] == u)return u;
 
@@ -8,16 +8,25 @@ public:
     }
     void union_set(int a,int b){
         int u = find_set(a),v = find_set(b);
-        if(u != v){
+        if(u == v){
+            return ;
+        }
+        if(ranks[u]>ranks[v]){
+            ranks[u]+=ranks[v];
+            parent[v] = u;
+        }else{
+            ranks[v]+=ranks[u];
             parent[u] = v;
         }
         return ;
     }
     vector<bool> pathExistenceQueries(int n, vector<int>& nums, int maxDiff, vector<vector<int>>& queries) {
         parent.resize(n+1);
+        ranks.resize(n+1);
         int i=0,j=0;
         for(int i=0;i<n;++i){
             parent[i] = i;
+            ranks[i] = 1;
         }
         while(j<n){
             if(abs(nums[i]-nums[j])>maxDiff){
