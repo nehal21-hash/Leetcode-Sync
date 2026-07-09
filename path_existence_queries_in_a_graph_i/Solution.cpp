@@ -13,6 +13,9 @@ public:
                 continue;
             }
             v[j] = cnt;
+            if(i != j){
+                i++;
+            }
             j++;
         }
         vector<bool>ans;
