@@ -24,12 +24,8 @@ public:
             j++;
         }
         vector<int>ans;
-        for(auto &x:newNums){
-            cout<<x.first<<" "<<x.second<<endl;
-        }
         for(auto &x:queries){
             int dif = abs(nums[x[0]]-nums[x[1]]);
-            cout<<v[x[0]]<<" "<<v[x[1]]<<endl;
             if(v[x[0]] == v[x[1]]){
                 ans.push_back((dif+maxDiff-1)/maxDiff);
             }else{
