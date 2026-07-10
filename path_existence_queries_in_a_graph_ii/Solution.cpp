@@ -26,6 +26,14 @@ public:
         vector<int>ans;
         for(auto &x:queries){
             int dif = abs(nums[x[0]]-nums[x[1]]);
+            if(maxDiff ==0){
+                if(x[0] == x[1]){
+                    ans.push_back(0);
+                }else{
+                    ans.push_back(-1);
+                }
+                continue;
+            }
             if(v[x[0]] == v[x[1]]){
                 ans.push_back((dif+maxDiff-1)/maxDiff);
             }else{
