@@ -17,15 +17,8 @@ public:
                 if(j>0){
                     dp[i] = max(dp[i],dp[j-1]+(i-j+1)*val);
                 }
-                if(i == 4){
-                    cout<<i<<" "<<j<<" "<<dp[i]<<endl;
-                }
             }
         }
-        for(int i=1;i<=n;++i){
-            cout<<dp[i]<<" ";
-        }
-        cout<<endl;
         return dp[n];
     }
 };
