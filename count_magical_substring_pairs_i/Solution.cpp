@@ -63,10 +63,12 @@ public:
         }
         int ans = 0;
         for(int i=0;i<n;++i){
-            set<int>st;
+            int st = 0,sizs=0;
             for(int j=i;j>=0;--j){
-                st.insert(s[j]);
-                int sizs = (int)st.size();
+                if((st&(1<<(s[j]-'a'))) == 0){
+                    st|=(1<<s[j]-'a');
+                    sizs++;
+                }
                 int l = 0, h = j-1;
                 int L ,R;
                 if(h<0)continue;
@@ -102,9 +104,7 @@ public:
                     R = -1;
                 }
                 if(L == -1 && R == -1)continue;
-                cout<<L<<" "<<R<<endl;
                 ans+=L-R+1;
-                cout<<i<<" "<<L<<" "<<R<<" "<<sizs<<endl;
             }
         }
         return ans;
