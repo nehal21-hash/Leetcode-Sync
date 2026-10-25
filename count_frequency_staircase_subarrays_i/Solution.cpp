@@ -8,7 +8,7 @@ public:
             int tempans =0;
             for(int j=0;j<n;++j){
                 if(j+len-1>=n)continue;
-                map<int,int>ms;
+                unordered_map<int,int>ms;
                 vector<int>v;
                 int k=0;
                 while(k !=len){
