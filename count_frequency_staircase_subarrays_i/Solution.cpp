@@ -3,7 +3,7 @@ public:
     int countStaircase(vector<int>& nums) {
         int n = nums.size();
         int ans =0;
-        for(int i=1;i<60;++i){
+        for(int i=1;i<55;++i){
             int len = (i+1)*i /2;
             int tempans =0;
             for(int j=0;j<n;++j){
