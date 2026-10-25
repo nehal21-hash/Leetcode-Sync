@@ -28,13 +28,9 @@ public:
                     }
                     cnt++;
                 }
-                if(len == 3 && ok){
-                    cout<<j<<endl;
-                }
                 ans+=ok;
                 tempans+=ok;
             }
-            //cout<<i<<" "<<tempans<<endl;
         }
         return ans;
     }
