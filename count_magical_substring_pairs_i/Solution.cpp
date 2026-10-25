@@ -6,12 +6,6 @@ public:
         void init(int n){
             tree.resize(2*n);
             this->N = n;
-            for(int i=n;i<2*n;++i){
-                tree[i] = 0;
-            }
-            for(int i=n-1;i>=1;--i){
-                tree[i] = tree[2*i]|tree[2*i+1];
-            }
             return ;
         }
         int query(int l,int r){
