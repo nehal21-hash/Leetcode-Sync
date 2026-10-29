@@ -109,9 +109,9 @@ public:
         }
         t = 0;
         dfs(0,graph,-1);
-        Parent[0] = 1;
+        Parent[0] = 0;
         depth[0] = 0;
-        dfs(0,graph,-1);
+        dfs1(0,graph,-1);
         binaryLifting(graph,n);
         vector<int>v;
         set<int>vis;
@@ -173,7 +173,6 @@ public:
                         cnt++;
                     }
                 }
-                cout<<tempans<<endl;
                 ans.push_back(cnt <=1);
             }
         }
