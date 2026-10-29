@@ -131,10 +131,6 @@ public:
         vector<bool>ans;
         //cout<<t1[1]<<endl;
         for(auto &x:queries){
-            for(auto &y:v){
-                cout<<y<<" ";
-            }
-            cout<<endl;
             if(x[0] == 'u'){
                 int node = 0;
                 int m = (int)x.size();
@@ -170,6 +166,7 @@ public:
                 int tempans = tree.query(0,T1);
                 tempans^=tree.query(0,T2);
                 tempans^=1<<(s[LCA(u,v)]-'a');
+                cout<<LCA(u,v)<<endl;
                 int cnt =0;
                 for(int i=0;i<26;++i){
                     if((1<<i)&tempans){
