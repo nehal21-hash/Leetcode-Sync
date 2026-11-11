@@ -16,6 +16,7 @@ public:
     }
     int scoreOfParentheses(string s) {
         /*
+        (M) - > 
         def func(l,r):
             int cnt =0;
             int ans = 0,j=l;
@@ -38,7 +39,6 @@ public:
                 cnt--;
             }
             if(cnt == 0){
-                cout<<l+1<<" "<<i-1<<endl;
                 ans+=func(l+1,i-1,s);
                 l = i+1;
             }
