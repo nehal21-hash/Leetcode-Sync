@@ -1,25 +1,22 @@
 class Solution {
 public:
-    bool check(vector<int>&v,int mid){
-        int n= (int)v.size();
-        for(int i=n-1;i>=0;--i){
-            if(mid-v[i]<=1 && mid>=v[i]){
-                mid--;
-            }
-        }
-        return mid <=0;
-    }
     int maxSelectedElements(vector<int>& nums) {
+        /*
+        dp[i][1] = max(dp[j][0]) if nums[i] == nums[j] or max(dp[j][1]) if nums[i] == nums[j]+1;
+        dp[i][0] = max(dp[j][0]) if nums[i]-1 == nums[j] or max(dp[j][1]) if nums[i]-2 == nums[j];
+        */
+        int n= (int)nums.size();
+        map<int,int> dp,dp1;
         sort(nums.begin(),nums.end());
-        int l = 0 , h = (int)nums.size()+10;
-        while(h-l>1){
-            int mid = (l+h)>>1;
-            if(check(nums,mid)){
-                l = mid;
-            }else{
-                h = mid-1;
-            }
+        int ans = 0;
+        for(int i=1;i<=n;++i){
+            int val = max({dp[nums[i-1]-1]+1,dp1[nums[i-1]-2]+1,1});
+            int val2 = max({dp[nums[i-1]]+1,dp1[nums[i-1]-1]+1,1});
+            dp[nums[i-1]] = max(val,dp[nums[i-1]]);
+            dp1[nums[i-1]] = max(val2,dp1[nums[i-1]]);
+            ans = max({ans,val,val2});
+            cout<<nums[i-1]<<" "<<dp[nums[i-1]]<<" "<<dp1[nums[i-1]]<<endl;
         }
-        return (check(nums,h)? h : l);
+        return ans;
     }
 };
