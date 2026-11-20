@@ -15,7 +15,6 @@ public:
             dp[nums[i-1]] = max(val,dp[nums[i-1]]);
             dp1[nums[i-1]] = max(val2,dp1[nums[i-1]]);
             ans = max({ans,val,val2});
-            cout<<nums[i-1]<<" "<<dp[nums[i-1]]<<" "<<dp1[nums[i-1]]<<endl;
         }
         return ans;
     }
